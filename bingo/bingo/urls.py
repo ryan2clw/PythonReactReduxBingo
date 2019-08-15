@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from play.views import CardList, RowList
 
 urlpatterns = [
+    path('cards', CardList.as_view(), name='cards'),
+    path('rows', RowList.as_view(), name='rows'),
     path('admin/', admin.site.urls),
 ]
