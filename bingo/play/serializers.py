@@ -5,17 +5,6 @@ from random import sample
 from rest_framework import serializers
 from play.models import Row, Card
 
-class RowSerializer(serializers.ModelSerializer):
-    """ row JSON """
-    class Meta:
-        model = Row
-        fields = ['b_val', 'i_val', 'n_val', 'g_val', 'o_val', 'card']
-
-    # def get_queryset(self):
-    #     """ returns list of rows """
-    #     return Row.objects.all()
-
-
 def card_data(card):
     """ populates card with 5 rows of random data """
     b_column = sample(range(1, 16), k=5)

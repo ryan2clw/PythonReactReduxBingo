@@ -3,10 +3,10 @@ from django.db import models
 
 class Card(models.Model):
     """ A bingo card with 5 rows. """
-    created_on = models.DateField(auto_now_add=True)
+    created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.created_on
+        return "Card: " + str(self.id) + ", " + str(self.created_on)
 
 class Row(models.Model):
     """ Each property is a column on a bingo card, should have 5 rows per card """

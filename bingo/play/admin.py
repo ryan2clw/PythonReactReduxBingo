@@ -1,3 +1,5 @@
 from django.contrib import admin
+from play.models import Card, Row
 
-# Register your models here.
+admin.site.register(Card)
+admin.site.register(Row)
