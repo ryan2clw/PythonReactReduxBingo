@@ -14,7 +14,7 @@ export const actionCreators = {
                     return dispatch(success(cards));
                 },
                 error => {
-                    dispatch(failure(evnt.NUMBERS_FAILURE, error.toString()));
+                    dispatch(failure(evnt.CARD_FAILURE, error.toString()));
                     dispatch(danger(error.toString())); // sends error to the UI, alert messages at top of page
                 }
             );
@@ -32,8 +32,7 @@ export const cardReducer = (state = { cards: [], cardCount: 0 }, action) => {
         {
             /* Successful API call so update dynamic data: state.whatever = action.whatever */
             return {
-                cards: action.cards,
-                cardCount: action.cardCount
+                cards: action.cards
             };
         }
         case evnt.CARD_FAILURE:

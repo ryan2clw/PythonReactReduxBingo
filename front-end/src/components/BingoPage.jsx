@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Flex } from 'reflexbox';
-import { clear } from  '../store/Message';
+//import { clear } from  '../store/Message';
 import { Container, Row, Spinner } from 'reactstrap';
 import { actionCreators } from '../store/Card';
 import BingoBoard from './BingoBoard';
+import './styles/App.css';
 
 const Body = styled.div`
     min-height:600px;
@@ -34,15 +35,16 @@ class BingoPage extends React.Component {
 
     componentDidMount(){
         this.getCards(this.props.cardCount || 6);
-        setTimeout(() => {
-            this.props.dispatch(clear());
-          }, 10000);
+        // setTimeout(() => {
+        //     this.props.dispatch(clear());
+        //   }, 10000);
     }
 
     render(){
         const { alert, cards } = this.props;
         return (
         <BackgroundFlex column justify="center">
+            {console.log(this.props)}
             <Container>
                 <Row className="justify-content-center">
                     <div className="text-center">
@@ -79,6 +81,7 @@ class BingoPage extends React.Component {
 }
 function mapStateToProps(state) {
     const { alert, cards } = state;
+    console.log("state", state);
     return {
         cards: cards,
         alert

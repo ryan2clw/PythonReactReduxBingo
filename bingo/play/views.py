@@ -6,10 +6,5 @@ from play.serializers import CardSerializer
 
 class CardList(generics.ListCreateAPIView):
     """ Get or create cards """
-    queryset = Card.objects.all()
+    queryset = Card.objects.all()[:6]
     serializer_class = CardSerializer
-
-# class RowList(generics.ListCreateAPIView):
-#     """ Get or create rows """
-#     queryset = Row.objects.all()
-#     serializer_class = RowSerializer

@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex } from 'reflexbox';
 import styled from 'styled-components';
 import Square from './Square';
-import BingoBalls from './images/BingoButton.png';
+import BingoBalls from './images/BingoBalls.png';
 import BingoButton from './images/BingoButton.png';
 
 // Create a Title component that'll render an <h1> tag with some styles
@@ -38,13 +38,12 @@ class BingoBoard extends React.Component {
                 {[...Array(columnCount)].map((_, i) => {
                     let reactKey = "Square(" + rowNumber + "," + i + ")";
                     let ticketNumber = numBas[i].toString();
-                    // console.log("CALLED BALLS", this.props);
                     if (reactKey === "Square(2,2)") {
                         ticketNumber = "FREE";
                         return (<Square className="ticket-number called" ticketNumber={ticketNumber} key={reactKey} />);
                     }
                     if (calledBalls && calledBalls.length && calledBalls.includes(ticketNumber)) {
-                        //console.log("CALLED NUMBER", this.props);
+                        // console.log("CALLED NUMBER", this.props);
                         return (<Square ticketNumber={ticketNumber} key={reactKey} className="ticket-number called" />)
                     }
                     return (<Square ticketNumber={ticketNumber} key={reactKey} className="ticket-number" />)
